@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html{
+            margin:0%;
+            padding:0%;
+            height:100%;
+        }
+        .container{
+            background-color: aqua;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height:100%;
+        }
+        .box{
+            background-color: greenyellow;
+            text-align:center;
+            align-items: center;
+            padding: 50px 100px;
+            position: relative;
+            border: 5px solid red;
+            border-radius: 5px;
+        }
+        p{
+            font-size: 200%;
+        }
+        .intput{
+            width:250px;
+            height: 50px;
+            border-radius: 10px;
+        }
+        button {
+            background-color: gold;
+            padding: 10px 100px;
+            border-radius: 20px;
+        }
+        button:hover {
+            background-color: pink;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+        <div class="input">
+            <p>Qr code generator</p>
+            <input type="text" id="inputtext" placeholder="Enter the Url" text-align="center"><br><br>
+            <button onclick="generate()">Generate Qr</button>
+        </div>
+        <div class="qr">
+            <div class="img">
+            <img src="" id="imgqr"><br><br>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        //string concatination
+        let inputtext=document.getElementById("inputtext");
+        let img=document.getElementById("imgqr");
+
+        function generate(){
+            console.log("Func called");
+            let url='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+inputtext.value;
+            document.getElementById("imgqr").src=url;
+        }
+    </script>
+</body>
+</html>
